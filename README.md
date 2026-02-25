@@ -19,8 +19,8 @@ This implementation reproduces the theoretical setting described in **Theorem 3.
 *   **Task:** Binary Linear Classification.
 *   **Hypothesis Space:** $\mathcal{V} \subseteq \mathbb{R}^d$ (Convex set).
 *   **Loss Function:** **Logistic Loss** (Convex, differentiable), defined as:
-    $$ \ell(x; (z, y)) = \ln(1 + \exp(-y \langle x, z \rangle)) $$
-    *(Refer to Example 3.4 in `online_learning_to_batch_learning.pdf`)*.
+    $\ell(x; (z, y)) = \ln(1 + \exp(-y \langle x, z \rangle))$
+    *(Refer to Example 3.4 in Orabona (2025))*.
 *   **Data Assumption:** Samples $(z_t, y_t)$ are drawn **i.i.d.** from an underlying distribution $\rho$ *(Assumption 2.1, Seminar Report)*.
 
 ### 2. Algorithms Compared
@@ -30,7 +30,7 @@ This implementation reproduces the theoretical setting described in **Theorem 3.
     *   Guarantees sublinear regret $O(\sqrt{T})$.
 2.  **Online-to-Batch Converter (Averaging):**
     *   Constructs a single predictor $\bar{x}_T$ by uniformly averaging the sequence of online iterates:
-        $$ \bar{x}_T = \frac{1}{T} \sum_{t=1}^T x_t $$
+        $\bar{x}_T = \frac{1}{T} \sum_{t=1}^T x_t$
     *   Relies on **Jensen's Inequality** due to the convexity of the loss *(Theorem 3.1)*.
 3.  **Empirical Risk Minimization (ERM):**
     *   **Batch Baseline:** Trains via batch optimization (e.g., LBFGS) on the full training set.
